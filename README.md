@@ -1,4 +1,4 @@
 <p>
   スクラッチのアカウント
-  <a href="https://scratch.mit.edu/users/q23we3e4r5t6yu/">@q23we3e4r5t6yu</a>
+  <a target="_blank" href="https://scratch.mit.edu/users/q23we3e4r5t6yu/">@q23we3e4r5t6yu</a>
 </p>
