@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>れーとめ - リダイレクト</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="./images/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Roboto", Arial, sans-serif;
+        }
+        html{
+            height: 100%;
+            width: 100%;
+        }
+        body{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .redirect-link{
+            font-size: 25px;
+            display: block;
+            color: #0d6efd;
+            text-decoration: none;
+            width: fit-content;
+        }
+        .redirect-p{
+            font-size: 20px;
+            display: block;
+            color: #000;
+            width: fit-content;
+            margin-top: 10px;
+        }
+        .not-reetome{
+            font-size: 20px;
+            text-align: center;
+            color: black;
+        }
+        .center{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .center button{
+            display: block;
+            margin: 0 auto;
+            background: white;
+            font-size: 18px;
+            margin-top: 10px;
+            padding: 5px 15px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0 0 9px rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+            transition: .2s ease-in-out;
+        }
+        .center button:hover{
+            box-shadow: 0 0 13px rgba(0, 0, 0, 0.275);
+        }
+        @media only screen and (max-width: 510px) {
+            .center div a{
+                font-size: calc(15px + 1.5vw);
+            }
+            .center .redirect-p{
+                font-size: calc(10px + 1.5vw);
+                text-wrap: balance;
+                word-break: auto-phrase;
+            }
+            .center{
+                width: 90%;
+            }
+        }
+        .redirect-p.dark{
+            color: white;
+        }
+        .redirect-link.dark{
+            color: #3b82f6;
+        }
+        body.dark{
+            background: #0f0f0f;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <div style="display: flex;">
+            <a class="redirect-link"></a>
+        </div>
+        <p class="redirect-p">上記のサイトにアクセスしようとしています。<br>宜しければ上記のリンクをクリックしてください</p>
+    </div>
+
+    <script>
+        window.onload=function(){
+            let Referrer = document.referrer;
+            let hash = location.hash.slice(1);
+
+            if(Referrer=='http://127.0.0.1:5500/' || Referrer=='https://reetome.github.io/'){
+                $(".redirect-p").html("別のサイトにジャンプしようとしています。<br>宜しければ上記のリンクをクリックしてください");
+            }
+
+            if(hash==''){
+                hash="github.com/Reetome/reetome.github.io";
+            }
+            $(".redirect-link").attr("href",`https://${hash}`);
+            $(".redirect-link").html(`https://${decodeURI(hash)}`);
+
+            if (typeof window.localStorage !== 'undefined'){
+                const localDark = localStorage.getItem("DarkMode");
+                if (localDark == "true") {
+                    $(".center").find("*").addClass("dark");
+                    $("body").addClass("dark");
+                } else if (localDark == null || localDark == "null") {
+                    localStorage.setItem("DarkMode", "false");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

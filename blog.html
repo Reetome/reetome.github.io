@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>れーとめ - ブログ</title>
+    <link rel="stylesheet" type="text/css" href="./Style/style.css">
+    <link rel="stylesheet" type="text/css" href="./Style/mobile.css">
+    <link rel="stylesheet" type="text/css" href="./Style/blog/blog.css">
+    <link rel="stylesheet" type="text/css" href="/Style/404/404.css">
+    <link rel="icon" href="./images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="center">
+        <p style="font-weight: 500;font-size: 30px;">現在作成中のページです</p>
+        <p class="btn">
+            <a href="/">
+                <button>ホーム</button>
+            </a>
+        </p>
+    </div>
+
+    <script src="./JavaScript/script.js"></script>
+    <script>
+        if(localStorage.getItem("DarkMode")=="true"){
+            $(".center").find("*").addClass("dark");
+            $("body").addClass("dark");
+        }
+    </script>
+</body>
+</html>
