@@ -1,6 +1,6 @@
 const UserName = "れーとめ";
 const menu = ["ホーム", "ブログ", "Scratch作品", "Githubソースコード"];
-const menuLink = ["/", "/blog.html", "/project.html", "/redirect.html#github.com/Reetome/reetome.github.io"]
+const menuLink = ["/", "/blog.html", "/project.html", "https://github.com/Reetome/reetome.github.io"]
 
 function Project({Link}){
     let projectImage = `https://uploads.scratch.mit.edu/get_image/project/${Link}_600x450.png`;
