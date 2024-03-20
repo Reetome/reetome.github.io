@@ -1,14 +1,5 @@
 let toggleDark = false;
 
-//フルスクリーン
-function toggleFullScreen() {
-    if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen();
-    } else if (document.exitFullscreen) {
-        document.exitFullscreen();
-    }
-}
-
 //ローカルストレージ確認
 function StorageCheck(){
     if (typeof window.localStorage !== 'undefined'){
